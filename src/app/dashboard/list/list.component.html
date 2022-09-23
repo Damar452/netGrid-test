@@ -4,7 +4,7 @@
 
 <div class="row mb-3">
   <div class="col-3">
-    <button type="button" class="btn btn-primary" [routerLink]="['/add']" >Agregar Post</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/add']">Agregar Post</button>
   </div>
 </div>
 
@@ -21,7 +21,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let post of posts">
-          <td scope="row" class="text-center"><span class="badge bg-primary p-2 clickable text-center" (click)="openEdit(post.id)">{{ post.id }}</span></td>
+          <td scope="row" class="text-center"><span class="badge bg-primary p-2 clickable text-center"
+              (click)="openEdit(post.id)">{{ post.id }}</span></td>
           <td class="col-5">{{ post.title }}</td>
           <td class="col-5">{{ post.body }}</td>
           <td>
@@ -34,10 +35,6 @@
   </div>
 </div>
 
-<app-confirm-modal 
-  [title]="'Eliminar'" 
-  [buttonText]="'Si, eliminar'"
-  colorHeader="bg-danger text-white"
-  question="¿ Desea eliminar el elemento con el id: {{postSelected}} ?" 
-  (onConfirm)="deletePost($event)">
+<app-confirm-modal [title]="'Eliminar'" [buttonText]="'Si, eliminar'" colorHeader="bg-danger text-white"
+  question="¿ Desea eliminar el elemento con el id: {{postSelected}} ?" (onConfirm)="deletePost($event)">
 </app-confirm-modal>

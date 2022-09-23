@@ -1,4 +1,3 @@
-
 <h2 class="text-center">{{ title }}</h2>
 
 <div class="row">
@@ -9,15 +8,18 @@
         <form [formGroup]="postForm" *ngIf="postForm">
             <div class="form-group mb-3">
                 <label for="exampleInputEmail1">Título</label>
-                <input type="email" class="form-control" formControlName="title" aria-describedby="emailHelp" placeholder="Ingrese el titulo del post">
+                <input type="email" class="form-control" formControlName="title" aria-describedby="emailHelp"
+                    placeholder="Ingrese el titulo del post">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Cuerpo</label>
-                <textarea type="password" rows="8" class="form-control" formControlName="body" placeholder="Ingrese el cuerpo del post"> </textarea>
+                <textarea type="password" rows="8" class="form-control" formControlName="body"
+                    placeholder="Ingrese el cuerpo del post"> </textarea>
             </div>
 
             <div class="d-grid gap-2 mt-4">
-                <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="postForm.invalid" type="button">Guardar</button>
+                <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="postForm.invalid"
+                    type="button">Guardar</button>
             </div>
         </form>
     </div>
