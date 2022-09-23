@@ -1,0 +1,43 @@
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+  Lo sentimos el servicio no pudo eliminar el registro!!!
+</div>
+
+<div class="row mb-3">
+  <div class="col-3">
+    <button type="button" class="btn btn-primary" [routerLink]="['/add']" >Agregar Post</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 mx-auto">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Cuerpo</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td scope="row" class="text-center"><span class="badge bg-primary p-2 clickable text-center" (click)="openEdit(post.id)">{{ post.id }}</span></td>
+          <td class="col-5">{{ post.title }}</td>
+          <td class="col-5">{{ post.body }}</td>
+          <td>
+            <button (click)="setID(post.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-confirm-modal 
+  [title]="'Eliminar'" 
+  [buttonText]="'Si, eliminar'"
+  colorHeader="bg-danger text-white"
+  question="¿ Desea eliminar el elemento con el id: {{postSelected}} ?" 
+  (onConfirm)="deletePost($event)">
+</app-confirm-modal>
