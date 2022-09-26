@@ -15,7 +15,7 @@ export class PostsService {
     return await firstValueFrom(this.http.get<Post[]>(`${environment.postApi}`));
   }
 
-  public async getPostById(id?: number): Promise<Post> {
+  public async getPostById(id: number): Promise<Post> {
     return await firstValueFrom(this.http.get<Post>(`${environment.postApi}${id}`));
   }
 
