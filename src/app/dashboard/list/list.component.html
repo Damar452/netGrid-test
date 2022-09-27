@@ -2,6 +2,11 @@
   Lo sentimos el servicio no pudo eliminar el registro!!!
 </div>
 
+<div *ngIf="(loading$ | async)" class="d-flex align-items-center">
+  <strong>Cargando...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+
 <div class="row mb-3">
   <div class="col-3">
     <button type="button" class="btn btn-primary" [routerLink]="['/add']">Agregar Post</button>
